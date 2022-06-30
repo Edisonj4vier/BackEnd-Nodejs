@@ -1,7 +1,7 @@
 import { connect, connection } from "mongoose";
 import { MONGODB_URI } from "./config";
 
-export const connectToMongodb = async () => {
+export const connectToMongodb = async() => {
     try {
         await connect(MONGODB_URI);
     } catch (error) {
@@ -14,7 +14,7 @@ connection.on("connected", () => {
 });
 
 connection.on("error", (error) => {
-    console.error("Error", error);
+    console.error("error", error);
 });
 
 connection.on("disconnected",() => {

@@ -21,7 +21,9 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const server = (0, express_1.default)();
     server.use(express_1.default.json());
     (0, router_1.router)(server);
+    //Start server
     server.listen(config_1.PORT, () => {
         console.log("The application is listening on port " + config_1.PORT);
     });
 });
+main();

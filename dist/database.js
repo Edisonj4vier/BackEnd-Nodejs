@@ -25,7 +25,7 @@ mongoose_1.connection.on("connected", () => {
     console.log("Mongodb connected to:", mongoose_1.connection.db.databaseName);
 });
 mongoose_1.connection.on("error", (error) => {
-    console.error("Error", error);
+    console.error("error", error);
 });
 mongoose_1.connection.on("disconnected", () => {
     console.log("Mongodb disconnected");

@@ -9,8 +9,10 @@ const main = async () => {
     server.use(express.json());
     router(server);
 
+    //Start server
     server.listen(PORT, () => {
         console.log("The application is listening on port " + PORT)
-    })
-
+    });
 }
+
+main();
