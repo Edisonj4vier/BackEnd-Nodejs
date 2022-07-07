@@ -34,6 +34,8 @@ export const listVideogames = async (req: Request, res: Response) => {
 
 
 class VideogameController {
+
+    // Create videogame
     public async create(payload: IVideogame) : Promise<IResponse>{
         const videogame = new Videogame(payload);
         return videogame.save().then(data => {
@@ -51,6 +53,7 @@ class VideogameController {
         });
     }
 
+    // Retrieve videogame
     public async retrieve(docId: String) : Promise<IResponse> {
         return Videogame.findOne({_id:docId}).then(data => {
             if(data == null){
@@ -74,6 +77,7 @@ class VideogameController {
         });
     }
 
+    // Update videogame
     public async update(docId: String, payload: IVideogame): Promise<IResponse>{
         return Videogame.updateOne({_id: docId}, { $set: {
             title: payload.title,              
@@ -95,7 +99,8 @@ class VideogameController {
             }
         });
     } 
-
+    
+    // Delete videogame
     public async delete(docId: String): Promise<IResponse> {
         return Videogame.deleteOne({_id: docId}).then(data => {
             if (data.deletedCount == 0) {
@@ -119,6 +124,7 @@ class VideogameController {
         });
     }
 
+    // List videogames
     public async list(): Promise<IResponse> {
         return Videogame.find({}).then(data => {
             return{

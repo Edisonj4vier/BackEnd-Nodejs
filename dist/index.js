@@ -16,10 +16,16 @@ const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
 const database_1 = require("./database");
 const router_1 = require("./router");
+// Swagger documentation
+const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
+const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const swagger_1 = require("./swagger");
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, database_1.connectToMongodb)();
     const server = (0, express_1.default)();
+    const specs = (0, swagger_jsdoc_1.default)(swagger_1.options);
     server.use(express_1.default.json());
+    server.use('/games', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(specs));
     (0, router_1.router)(server);
     //Start server
     server.listen(config_1.PORT, () => {

@@ -42,6 +42,7 @@ const listVideogames = (req, res) => __awaiter(void 0, void 0, void 0, function*
 });
 exports.listVideogames = listVideogames;
 class VideogameController {
+    // Create videogame
     create(payload) {
         return __awaiter(this, void 0, void 0, function* () {
             const videogame = new videogame_model_1.Videogame(payload);
@@ -60,6 +61,7 @@ class VideogameController {
             });
         });
     }
+    // Retrieve videogame
     retrieve(docId) {
         return __awaiter(this, void 0, void 0, function* () {
             return videogame_model_1.Videogame.findOne({ _id: docId }).then(data => {
@@ -84,6 +86,7 @@ class VideogameController {
             });
         });
     }
+    // Update videogame
     update(docId, payload) {
         return __awaiter(this, void 0, void 0, function* () {
             return videogame_model_1.Videogame.updateOne({ _id: docId }, { $set: {
@@ -107,6 +110,7 @@ class VideogameController {
             });
         });
     }
+    // Delete videogame
     delete(docId) {
         return __awaiter(this, void 0, void 0, function* () {
             return videogame_model_1.Videogame.deleteOne({ _id: docId }).then(data => {
@@ -131,6 +135,7 @@ class VideogameController {
             });
         });
     }
+    // List videogames
     list() {
         return __awaiter(this, void 0, void 0, function* () {
             return videogame_model_1.Videogame.find({}).then(data => {
